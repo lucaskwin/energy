@@ -1,0 +1,131 @@
+<!--pages/run/index.wxml-->
+<scroll-view scroll-x class="bg-white nav" wx:if="{{motion_status == 0}}">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{runType == 0?'text-blue cur':''}}" bindtap="tabSelect" data-id="0">
+      室内运动
+    </view>
+	
+  
+  </view>
+</scroll-view>
+		<scroll-view class="device_list" scroll-y scroll-with-animation>
+      <view style="padding-top：19rpx;font-size: 19px;text-align: center;">当前动作为</view>
+      <view style="border-top：30rpx;font-weight:bold;font-size: 22px;text-align: center;">{{action}}</view>
+    </scroll-view>
+
+<view wx:if="{{runType == 0}}">
+	<corver-view>
+		<corver-view class="cu-card article">
+			<corver-view class="cu-item shadow">
+
+				<corver-view class="flex padding-left padding-right justify-center">
+					<corver-view class="text-center">
+						<!-- <corver-view class="cu-bar bg-white">
+						<picker mode="time" bindchange="timeChange">
+					<corver-view wx:if="{{motion_status == 0}}" class="set-time-btn">
+						设置运动时间
+					</corver-view>
+				</picker>
+						</corver-view> -->
+						<cover-view wx:if="{{motion_status == 1}}"  class="flex margin-left text-xxl text-bold" style="font-size: {{motion_status == 1 ? '30px' : '20px'}}; text-align: {{motion_status == 0 ? 'center' : 'left'}};">
+						<!-- <cover-view   class="flex margin-left text-xxl text-bold" style="font-size: {{motion_status == 1 ? '30px' : '20px'}}; text-align: {{motion_status == 0 ? 'center' : 'left'}};"> -->
+					
+							{{time_data}}
+						</cover-view>
+					</corver-view>
+					
+
+
+				</corver-view>
+				<cover-view class="flex justify-center">
+					<cover-view class="text-center" style="font-weight: bold; font-size: 18px;">
+						本组运动情况
+					</cover-view>
+				</cover-view>
+				<corver-view class="flex padding-left padding-right">
+					<corver-view>
+						<cover-view class="flex-sub flex align-center">
+							<cover-view class="cu-bar bg-white flex-none">
+								<cover-view class="action">
+									<cover-view class="cuIcon-title text-orange"></cover-view>徒手侧平举
+								</cover-view>
+							</cover-view>
+							<cover-view class="text-xl text-bold flex-none">
+								{{num_Method2[0]}}
+							</cover-view>
+						</cover-view>
+						<cover-view class="flex-sub flex align-center">
+							<cover-view class="cu-bar bg-white flex-none">
+								<cover-view class="action">
+									<cover-view class="cuIcon-title text-orange"></cover-view>前后交叉小跑
+								</cover-view>
+							</cover-view>
+							<cover-view class="text-xl text-bold flex-none">
+								{{num_Method2[1]}}
+							</cover-view>
+						</cover-view>
+						<cover-view class="flex-sub flex align-center">
+							<cover-view class="cu-bar bg-white flex-none">
+								<cover-view class="action">
+									<cover-view class="cuIcon-title text-orange"></cover-view>开合跳
+								</cover-view>
+							</cover-view>
+							<cover-view class="text-xl text-bold flex-none">
+								{{num_Method2[2]}}
+							</cover-view>
+						</cover-view>
+						<cover-view class="flex-sub flex align-center">
+							<cover-view class="cu-bar bg-white flex-none">
+								<cover-view class="action">
+									<cover-view class="cuIcon-title text-orange"></cover-view>半蹲
+								</cover-view>
+							</cover-view>
+							<cover-view class="text-xl text-bold flex-none">
+								{{num_Method2[3]}}
+							</cover-view>
+						</cover-view>
+
+
+
+
+
+
+					<!-- <corver-view class="flex-sub">
+						<corver-view class="cu-bar bg-white">
+							<corver-view class="action">
+								<text class="cuIcon-title text-green"></text>里程
+							</corver-view>
+						</corver-view>
+						<corver-view class="flex margin-left text-xl text-bold">
+							{{distance_data}} Km
+						</corver-view>
+					</corver-view> -->
+
+
+				</corver-view>
+				</corver-view>
+			</corver-view>
+		</corver-view>
+	</corver-view>
+		<corver-view style="position: fixed;width: 100%;bottom: 30px;z-index: 1024;">
+		<corver-view class="flex justify-center">
+			<picker mode="time" bindchange="timeChange">
+				<button  wx:if="{{motion_status == 0}}" class="cu-btn bg-green margin-left margin-right round lg" style="padding:0 40rpx" >设置运动时间</button>
+			</picker>
+			<button  wx:if="{{motion_status == 0}}" class="cu-btn bg-green margin-left margin-right round lg" style="padding:0 40rpx" bindtap="startRun">开始跑步</button>
+			<button  wx:if="{{motion_status == 1}}" class="cu-btn bg-blue margin-left margin-right round lg" style="padding:0 40rpx" bindtap="pauseRun">暂停跑步</button>
+			<button  wx:if="{{motion_status == 2}}" class="cu-btn bg-orange margin-left margin-right round lg" style="padding:0 40rpx" bindtap="reRun">恢复跑步</button>
+			<button  wx:if="{{motion_status == 1 || motion_status == 2}}" class="cu-btn bg-red margin-left margin-right round lg" style="padding:0 40rpx" bindlongpress="stopRun">长按停止</button>
+		</corver-view>
+	</corver-view>
+	
+
+	<!-- <view	class="flex padding-left padding-right justify-center">
+		<view class="flex-sub"></view>
+		<view class="flex-sub">
+		<image src="../../icon/runer.svg" style="height:1500%"></image>
+		</view>
+		<view class="flex-sub"></view>
+	</view>
+	 -->
+</view>

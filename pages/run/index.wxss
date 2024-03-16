@@ -1,0 +1,24 @@
+/* pages/run/index.wxss */
+/* pages/run/index.wxss */
+.set-time-btn {
+  /* 按钮样式 */
+  padding: 10px;
+  margin: 10px;
+  text-align: center;
+  background-color: #1aad19;
+  color: white;
+  border-radius: 5px;
+}.corver-view {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px; /* 你可以根据需要调整这个值 */
+}
+.device_list {
+  height: 70px;
+  margin: 50px 50px;
+  margin-top: 0;
+  border: 2px solid #EEE;
+  border-radius: 5px;
+  width: auto;
+}
